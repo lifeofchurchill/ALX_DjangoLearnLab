@@ -21,6 +21,13 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        permissions = [
+            ("can_add_book", "Can add book"),
+            ("can_change_book", "Can change book"),
+            ("can_delete_book", "Can delete book"),
+        ]
+
 
 # Library model (can contain many Books)
 class Library(models.Model):
@@ -67,3 +74,5 @@ def create_user_profile(sender, instance, created, **kwargs):
 @receiver(post_save, sender=User)
 def save_user_profile(sender, instance, **kwargs):
     instance.userprofile.save()
+
+
