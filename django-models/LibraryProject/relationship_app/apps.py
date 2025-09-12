@@ -8,4 +8,4 @@ def list_books(request):
     # Pass them to the template
     context = {'book_list': books}
     
-    return render(request, 'relationship_app/list_books.html', context)
+    return render(request, "relationship_app/list_books.html", context)
