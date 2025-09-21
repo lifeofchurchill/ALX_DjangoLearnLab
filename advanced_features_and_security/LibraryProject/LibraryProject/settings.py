@@ -139,3 +139,40 @@ CSP_DEFAULT_SRC = ("'self'",)
 CSP_SCRIPT_SRC = ("'self'",)
 CSP_STYLE_SRC = ("'self'",)
 CSP_IMG_SRC = ("'self'", "data:")  # allow inline images
+
+
+# SECURITY ENHANCEMENTS FOR HTTPS AND SECURE HEADERS
+
+# Redirect all HTTP requests to HTTPS
+SECURE_SSL_REDIRECT = True  
+# Explanation: Ensures that any non-HTTPS request is automatically redirected to HTTPS.
+
+# HTTP Strict Transport Security (HSTS)
+SECURE_HSTS_SECONDS = 31536000  
+# Explanation: Instructs browsers to only connect via HTTPS for the next year (in seconds).
+
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  
+# Explanation: Applies HSTS policy to all subdomains.
+
+SECURE_HSTS_PRELOAD = True  
+# Explanation: Allows site to be included in browser preload lists for HSTS enforcement.
+
+# Secure session cookies
+SESSION_COOKIE_SECURE = True  
+# Explanation: Ensures session cookies are only transmitted over HTTPS.
+
+# Secure CSRF cookies
+CSRF_COOKIE_SECURE = True  
+# Explanation: Ensures CSRF protection cookies are only sent over HTTPS.
+
+# Prevent clickjacking attacks
+X_FRAME_OPTIONS = 'DENY'  
+# Explanation: Prevents site from being loaded in iframes to mitigate clickjacking attacks.
+
+# Prevent MIME type sniffing
+SECURE_CONTENT_TYPE_NOSNIFF = True  
+# Explanation: Stops browsers from guessing content types, reducing the risk of XSS.
+
+# Enable browser XSS filter
+SECURE_BROWSER_XSS_FILTER = True  
+# Explanation: Activates browser's built-in XSS protection.
